@@ -18,3 +18,15 @@ code {
     padding: 0.1em;
     border-radius: 0.1em;
 }
+
+.ui.message.content code {
+    white-space: pre-wrap;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0;
+    border-radius: 0;
+}
+
+#sidebar {
+    margin-top: 6rem;
+    left: auto;
+}
