@@ -1,0 +1,20 @@
+body {
+    height: 100%;
+}
+
+#body {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.jumbotron {
+    background-color: black;
+}
+
+/* Styling for code block */
+code {
+    background-color: gainsboro;
+    padding: 0.1em;
+    border-radius: 0.1em;
+}
