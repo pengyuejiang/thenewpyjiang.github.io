@@ -34,7 +34,7 @@
                 <!-- Sidebar like the one we had in official CS125 MP page. -->
                 <div class="four wide column">
                     <div id="sidebar" class="ui secondary vertical fixed pointing menu">
-                        <a class="item">Types and Variables</a>
+                        <a class="item">1. Types and Variables</a>
                         <a class="item"></a>
                         <a class="item"></a>
                     </div>
@@ -42,15 +42,38 @@
                 <div class="twelve wide column">
                     <!-- Main content -->
                     <h1 class="ui header">Java Basics</h1>
-                    <p class="ui content">In this section, you will build up your most fundamental skills for Java.</p>
+                    <p>In this section, you will build up the most fundamental skills for Java.</p>
                     <!-- Section 1 - Types and Variables -->
                     <h2 class="ui header">1. Types and Variables</h2>
-                    <p class="ui content">In Java, as in any other programming languages, data are stored in <u>variables</u>. These things act like containers, holding our data.</p>
-                    <p class="ui content">In Java, whenever we want to create such a container, we have to <u>declare</u> a variable with its type and variable name, for instance:</p>
-                    <p class="ui message content"><code>// Declares a varible called number as an integer<br>int number;</code></p>
-                    <h3 class="ui header">Primitive Types</h3>
-                    <p>In this section we will be studying <u>Primitive Types</u>, that is, data that can be represented as numbers inside the computer. The following diagram is a very good visual representation of the primitive types in Java:</p>
+                    <div class="ui divider"></div>
+
+                    <h3 class="ui header">Variable declaration</h3>
+                    <p>In Java, as in any other programming languages, data are stored in <u>variables</u>. These things act like containers, holding your data. In Java, whenever we want to create such a container, we have to <u>declare</u> a variable with its type followed by variable name, for instance:</p>
+                    <p class="ui message content"><code>
+                        // Declare a varible called age as an integer<br>
+                        int age;<br>
+                        // Declare a variable called length as a float<br>float length;<br>
+                        // Declare a variable called grade as a character<br>
+                        char grade;
+                    </code></p>
+
+                    <h3 class="ui header">Primitive types</h3>
+                    <p>In this section we will be studying <u>primitive types</u>, that is, data that can be represented as numbers inside the computer. The following diagram is a very good visual representation of the primitive types in Java:</p>
                     <img src="https://howtodoinjava.com/wp-content/uploads/2015/05/Primitive-data-types-in-java.jpg">
+
+                    <h3 class="ui header">Variable initialization</h3>
+                    <p>However, at this stage we cannot use them yet, because they do not have an initial value yet. The process where we initialize their values is called <u>initialization</u>. See the code section below:</p>
+                    <p class="ui message content"><code>
+                        // Declare int variable age<br>
+                        int age;<br>
+                        // Initialize it to be 5<br>
+                        age = 5;
+                    </code></p>
+                    <p>It is much more common to see declaration and initialization done together in a line:</p>
+                    <p class="ui message content"><code>
+                        // Declare int variable age and initialize it to be 5<br>
+                        int age = 5;
+                    </code></p>
                 </div>
             </div>
 

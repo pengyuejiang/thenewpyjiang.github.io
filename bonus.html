@@ -31,7 +31,95 @@
 
 
             <!-- Put your code here -->
+            <div class="ui grid">
+                <div class="four wide column">
+                    <div id="sidebar" class="ui secondary vertical fixed pointing menu">
+                        <a class="item">Jshell</a>
+                        <a class="item">Bitwise Operators</a>
+                        <a class="item"></a>
+                    </div>
+                </div>
+                <div class="twelve wide column">
+                    <h1 class="ui header">Bonus</h1>
+                    <p>Hi! In this section, you will find some very interesting things about Java that are not covered in lectures. Make sure you are very familiar with the lecture materials first, because that's suppose to be the priority. This page will show many fragments of cool features, thus will not be organized in any particular orders.</p>
 
+                    <h2 class="ui header">Jshell</h2>
+                    <div class="ui divider"></div>
+                    <p><u>Jshell</u> is a command line tool that allows you to interact with Java easily and quickly, like using the command <code>node</code> to open up a node console or using the <code>python3</code> command to interact with python3 in the terminal. Now this also works for Java! This is surprising because unlike python3 or Node.js, Java requires compilation. You can reference the <a href="https://docs.oracle.com/javase/9/jshell/introduction-jshell.htm#JSHEL-GUID-630F27C8-1195-4989-9F6B-2C51D46F52C8" target="_blank">official site</a> for more info.</p>
+                    <p>Make sure you have JDK 9 or above installed. Now open up your command line, and type <code>jshell</code> to enter jshell. If you don't know what a <u>command line</u> or a <u>terminal</u> is, then I suggest you to do some research on your own first.</p>
+                    <p>Once you're in, you can try some cool stuff. For instance, declare an array, and jshell will actually display the data in the array in the next line. Or you can try some arithmetics, jshell will act like a calculator and return the result. (Although to be honest, Java is not good with math)</p>
+                    <p>Nevertheless, we only bring you with the info, the most important thing is explore it yourself!</p>
+
+                    <h2 class="ui header">Bitwise Operators</h2>
+                    <div class="ui divider"></div>
+                    <h3 class="ui header">A cool hack</h3>
+                    <p>Question, what will be the output of the following line?</p>
+                    <p class="ui message content"><code>System.out.println(123&456<<2);<br></code></p>
+                    <p>You must be very confused if I tell you that the output will be the number 32. Next we'll see why that is the case, and unlock a cool hack for you.</p>
+
+                    <h3 class="ui header">List of Java bitwise operators</h3>
+                    <table class="ui celled table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Symbol</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bitwise AND</td>
+                                <td><code>&</code></td>
+                                <td>Perform AND operations to operands in binary form bit by bit.</td>
+                            </tr>
+                            <tr>
+                                <td>Bitwise OR</td>
+                                <td><code>|</code></td>
+                                <td>Perform OR operations to operands in binary form bit by bit.</td>
+                            </tr>
+                            <tr>
+                                <td>Bitwise XOR</td>
+                                <td><code>^</code></td>
+                                <td>Perform XOR operations to operands in binary form bit by bit.</td>
+                            </tr>
+                            <tr>
+                                <td>Bitwise complement</td>
+                                <td><code>~</code></td>
+                                <td>Flip the bits of a single operand.</td>
+                            </tr>
+                            <tr>
+                                <td>Left shift</td>
+                                <td><code><<</code></td>
+                                <td>Shift a number in binary form to the left, the empty spot at the rightmost digit is filled with 0.</td>
+                            </tr>
+                            <tr>
+                                <td>Right shift</td>
+                                <td><code>>></code></td>
+                                <td>Shift a number in binary form to the left, the empty spot at the leftmost digit is filled with the original digit.</td>
+                            </tr>
+                            <tr>
+                                <td>Zero fill right shift</td>
+                                <td><code>>>></code></td>
+                                <td>Shift a number in binary form to the right, the empty spot at the leftmost digit is filled with 0.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="ui header">Bitwise operators in action</h3>
+                    <p>What does all that mean? Let's see them in action. We all know what an AND is, logically equivalent to short circuit AND boolean operator <code>&&</code> in Java. Where as <code>&&</code> can only operate on booleans, bitwise operator <code>&</code> can also act on integers.</p>
+                    <p>In order to perform the operation, we have to first convert numbers into binary form, for instance the number <code>123</code> and <code>456</code> are <code>1111011</code> and <code>111001000</code> in binary respectively. But we cannot start our operations until binary numbers are turned to their representations in computer format. Negative numbers will not be dealt here, because they involve a whole other topic. For positive numbers, we add a <code>0</code> at the front.</p>
+                    <p>In the case of <code>123&456<<2</code>, the left shift operator is calculated before the bitwise AND. So <code>456<<2</code> is <code>011100100000</code>. Now we can calculate the entire expression. We can regard digit <code>1</code> in a binary number as <code>true</code> in a boolean expression, and the logic follows that only two <code>1</code>s can get us a <code>1</code>(just like only two <code>true</code>s can return a <code>true</code> with <code>&&</code>). Now let's line up the numbers (for a positive binary number we simply add 0s to the front) and perform a bit-by-bit AND operation!</p>
+                    <p class="ui message content" style="white-space: pre-wrap;"><code>123           000001111011
+456<<2     &  011100100000
+--------------------------
+RESULT        000000100000
+Decimal: 32</code></p>
+                    <p>I'm sure you're smart enough to figure out the rest with this demo seen, give them a shot and try them in <code>jshell</code>!</p>
+
+                    <h3 class="ui header">Usages of bitwise operators</h3>
+                    <p>How can such things be useful, you might ask. In fact, shifts can perform efficient division or multiplication by 2 because they resemble the states of computers at their most fundamental levels. In addition to this most common usage, it's also a great thing to show off with (haha). I'm sure your friend would be puzzled when he or she saw you using <code>i = Math.abs(~i)</code> instead of <code>i++</code>.</p>
+                </div>
+            </div>
 
 
 
